@@ -477,7 +477,7 @@ function Services() {
 const WHY_ITEMS = [
   { n: "01", h: "Single point of contact", p: "One dedicated project manager from first call to final handover. No juggling contractors, no crossed wires." },
   { n: "02", h: "Fixed, transparent pricing", p: "We cost projects thoroughly before work begins. What we quote is what you pay — no hidden variations." },
-  { n: "03", h: "In-house trades network", p: "Our vetted team handles every discipline — structure, M&E, fit-out, smart home — under one contract." },
+  { n: "03", h: "In-house trades network", p: "Our vetted team handles every discipline — structure, mechanical and electrical, fit-out, smart home — under one contract." },
   { n: "04", h: "10-year structural warranty", p: "Every new-build we complete comes with a full 10-year structural warranty and dedicated aftercare support." },
 ];
 

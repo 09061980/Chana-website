@@ -20,6 +20,7 @@ function Projects() {
         {PROJECTS.map((p, i) => (
           <article className={`proj ${p.cls} reveal ${i ? "d" + i : ""}`} key={p.t}>
             <span className="tag">{p.tag}</span>
+            {p.status && <span className="proj-status">{p.status}</span>}
             <div className="proj-img">
               {p.img ? (
                 p.cardFull ? (
@@ -197,7 +198,7 @@ function Footer() {
         <div className="footer-top">
           <div className="fbrand">
             <Brand />
-            <p>A family-run construction company built on trust, quality and genuine client care &mdash; a new firm serving London and the surrounding areas.</p>
+            <p>A family-run construction company built on trust, quality and genuine client care &mdash; a firm serving London and the surrounding areas.</p>
           </div>
           <div className="fcol">
             <h4>Explore</h4>
@@ -285,7 +286,8 @@ function ProjectDetail() {
         <div className="proj-detail-hero-overlay" style={{zIndex:2}}>
           <div className="wrap">
             <a className="back-link" data-pagelink href="Projects.html"><span>←</span> All projects</a>
-            <span className="tag" style={{marginLeft:"auto"}}>{p.tag}</span>
+            {p.status && <span className="proj-status" style={{position:"static", marginLeft:"auto"}}>{p.status}</span>}
+            <span className="tag" style={{marginLeft: p.status ? "10px" : "auto"}}>{p.tag}</span>
           </div>
         </div>
       </section>

@@ -171,6 +171,7 @@ const PROJECTS = [
   { t: "Emerson Park — Six Bedroom Home", s: "Refurbishment · Emerson Park · London", tag: "Refurbishment", cls: "wide", label: "EMERSON PARK — SIX BEDROOM HOME",
     slug: "Emerson-Park-Six-Bedroom-Home",
     img: "assets/EP/Sylvan - Hero.jpg",
+    status: "Currently under refurbishment",
     duration: "8–9 months", year: "2026",
     brief: "A full refurbishment back to brick of a substantial family home on Sylvan Avenue, Emerson Park — including a single-storey extension, balcony formation, and the construction of an outdoor swimming pool and outbuilding. Six bedrooms, eight bathrooms across 600 sq m. A turnkey project.",
     approach: "We helped our client source the original house and then designed the scheme and obtained planning approval using our in-house architects and structural engineers — carrying the project from acquisition through design and planning to construction under one roof.",
