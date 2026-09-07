@@ -113,10 +113,14 @@ function Testimonials() {
 
 const PROJECT_TYPES = ["New build", "Extension", "Refurbishment", "Development", "Not sure yet"];
 
+const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/info@chanadesignandbuild.co.uk";
+
 function Contact() {
   const [form, setForm] = uS3({ name: "", email: "", postcode: "", type: "New build", message: "" });
   const [touched, setTouched] = uS3({});
   const [sent, setSent] = uS3(false);
+  const [sending, setSending] = uS3(false);
+  const [error, setError] = uS3("");
 
   const errs = {
     name: !form.name.trim(),
@@ -124,10 +128,37 @@ function Contact() {
     message: form.message.trim().length < 8,
   };
   const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }));
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setTouched({ name: true, email: true, message: true });
-    if (!errs.name && !errs.email && !errs.message) setSent(true);
+    if (errs.name || errs.email || errs.message) return;
+    setSending(true); setError("");
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          postcode: form.postcode || "—",
+          "project type": form.type,
+          message: form.message,
+          _subject: `New website enquiry — ${form.name}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.success === true || data.success === "true")) {
+        setSent(true);
+      } else {
+        setError("Something went wrong sending your enquiry. Please email us directly at info@chanadesignandbuild.co.uk.");
+      }
+    } catch (err) {
+      setError("We couldn't send your enquiry right now. Please email us directly at info@chanadesignandbuild.co.uk.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -182,7 +213,10 @@ function Contact() {
                 <textarea value={form.message} onChange={set("message")} onBlur={() => setTouched(t => ({ ...t, message: true }))} placeholder="A few words about your site, your plans and your timeline…" />
                 <span className="err">A sentence or two helps us prepare.</span>
               </div>
-              <button className="btn" type="submit">Send enquiry <Arrow /></button>
+              <button className="btn" type="submit" disabled={sending}>
+                {sending ? "Sending…" : <React.Fragment>Send enquiry <Arrow /></React.Fragment>}
+              </button>
+              {error && <p className="form-send-err" style={{ color: "#b3261e", fontSize: "14px", marginTop: "14px", lineHeight: 1.5 }}>{error}</p>}
             </form>
           )}
         </div>
