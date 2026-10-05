@@ -243,6 +243,13 @@ function Footer() {
             <a href="mailto:info@chanadesignandbuild.co.uk">info@chanadesignandbuild.co.uk</a>
             <a data-pagelink href="Contact.html">Request a quote</a>
           </div>
+          <div className="fcol fcol-social">
+            <h4>Follow us</h4>
+            <a className="footer-qr" href="https://www.instagram.com/chanadesignandbuild/" target="_blank" rel="noopener noreferrer" aria-label="Follow Chana Design and Build on Instagram">
+              <img src="assets/instagram-qr.jpg" alt="Scan to follow @chanadesignandbuild on Instagram" loading="lazy" />
+            </a>
+            <a className="footer-ig-handle" href="https://www.instagram.com/chanadesignandbuild/" target="_blank" rel="noopener noreferrer">@chanadesignandbuild</a>
+          </div>
         </div>
         <div className="footer-base">
           <span>© {new Date().getFullYear()} Chana Design and Build Ltd. All rights reserved.</span>

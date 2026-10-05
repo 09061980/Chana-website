@@ -824,10 +824,16 @@ body:not(.loaded) .curtain {
    FOOTER
    ============================================================ */
 .footer { background: var(--paper-2); border-top: 1px solid var(--line); padding-block: clamp(40px, 5vw, 64px) 32px; }
-.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 36px; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr auto; gap: 36px; }
 .footer h4 { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 18px; font-weight: 500; }
 .footer .fcol a { display: block; padding: 6px 0; color: var(--ink-2); font-size: 15px; transition: color .25s, padding-left .25s; }
 .footer .fcol a:hover { color: var(--accent-deep); padding-left: 6px; }
+/* Instagram QR stamp */
+.footer .fcol-social .footer-qr { display: inline-block; padding: 8px; background: #fff; border-radius: 10px; line-height: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: transform .3s var(--ease); }
+.footer .fcol-social .footer-qr:hover { padding-left: 8px; transform: translateY(-2px); }
+.footer .fcol-social .footer-qr img { width: 112px; height: 112px; display: block; border-radius: 3px; }
+.footer .fcol-social .footer-ig-handle { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; margin-top: 12px; color: var(--ink-soft); }
+.footer .fcol-social .footer-ig-handle:hover { color: var(--accent-deep); }
 .footer .fbrand .brand-name { font-size: 26px; }
 .footer .fbrand p { color: var(--ink-soft); font-size: 14px; line-height: 1.6; margin-top: 18px; max-width: 30ch; }
 .footer-base { display: flex; justify-content: space-between; align-items: center; margin-top: clamp(48px, 6vw, 80px); padding-top: 28px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--ink-soft); flex-wrap: wrap; gap: 12px; }
